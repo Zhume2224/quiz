@@ -13,3 +13,33 @@ import repositories.user_repository as user_repo
 #    print(row.__dict__)
 
 # above has tested save,delete,select,select_all functions on user_repo
+
+
+# print(user_repo.select_by_id(6).__dict__)
+# ------------------devide----------------
+
+
+# user1=User('Jack',6)
+# quiz1=Quiz('which bird eats elephant?','eagle',
+#            'sparrow','ladybird','ladybird',1,user1)
+# quiz_repo.save(quiz1)
+
+# results=quiz_repo.select_by_id(1)
+# for row in results:
+# print(results.__dict__) 
+
+# results=quiz_repo.select_by_user_id(1)
+# for row in results:
+#     print(row.__dict__)
+
+
+# results=quiz_repo.select_by_user_id(1)
+# for row in results:
+#     print(row.__dict__)
+
+# quiz_repo.delete_by_id(5)
+user1=User('Greg',1)
+# user1=user_repo.select_by_id(1)
+quiz=Quiz('who loves red','zhu','archie','ken',
+         'zhu',1, user1, 1)
+quiz_repo.update(quiz)

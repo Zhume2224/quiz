@@ -9,12 +9,12 @@ def save(user):
     user.id=result[0]['id']
     return user
     
-def delete(id):
+def delete_by_id(id):
     sql='DELETE FROM users WHERE id=%s'
     values=[id]
     run_sql(sql,values)
 
-def select(id):
+def select_by_id(id):
     user=None
     sql='SELECT * FROM users WHERE id=%s'
     values=[id]
