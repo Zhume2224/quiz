@@ -1,5 +1,5 @@
 # quiz
-##this is my first solo python project
+
 
 ### Quiz
 
