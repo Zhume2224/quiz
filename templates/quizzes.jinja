@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.jinja' %}
 
 {% block content %}
 <h1>Users</h1>
@@ -6,25 +6,26 @@
 <h1>Quizzes</h1>
 <p>section2: this area shows the quizzes selected fo the current user</p>
 
+
+
+
+{% for quiz in quizzes%}
+<form action="/quizzes" method="post" >
+{# user select here #}
+<input type="hidden" name="quiz_id" value="{{quiz.id}}"/>
+<label>Question: {{quiz.quiz}}</label>
+<select name="option">
+  <option name="opt1" value="{{quiz.opt1}}">{{quiz.opt1}}
+  </option><br>
+  <option name="opt2" value="{{quiz.opt1}}">{{quiz.opt2}}
+  </option><br>
+  <option name="opt3" value="{{quiz.opt1}}">{{quiz.opt3}}
+  </option><br>
+</select>
+ <input type="submit" value="Submit"><br>
+ </form>
+{% endfor %}
+
+
 {% endblock %}
-
-
-{# 
-<p >
-  <a class="btn btn--action" href="/visits/new">New Users</a>
-</p> #}
-{# 
-<ul>
-  {% for visit in visits %}
-  <li>
-  <p>{{ visit.user.name }} - {{ visit.location.name }} </p>
-  <p>"<i>{{visit.review}}</i>"</p>
-    <p>
-      <form action="/visits/{{ visit.id }}/delete" method="POST">
-        <input class="btn btn--danger" type="submit" value="delete" />
-      </form>
-    </p>
-  </li>
-  {% endfor %}
-</ul> #}
 

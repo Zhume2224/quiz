@@ -3,5 +3,14 @@
 {% block content %}
 <h1>Leading Board</h1>
 
-<p>shows and updates users scores</p>
+
+{% for user in users %}
+<p> {{user.name}}:
+
+</p>
+{% endfor %}
+
+
+
+<p>to-do: to put scores for each user</p>
 {% endblock %}

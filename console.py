@@ -1,8 +1,10 @@
 from models.quiz import Quiz
 from models.user import User
+from models.answer import Answer
 
 import repositories.quiz_repository as quiz_repo
 import repositories.user_repository as user_repo
+import repositories.answer_repository as answer_repo
 
 # user1=User('Archie')
 # result1=user_repo.save(user1)
@@ -43,3 +45,15 @@ import repositories.user_repository as user_repo
 # quiz=Quiz('who loves red','zhu','archie','ken',
 #          'zhu',1, user1, 1)
 # quiz_repo.update(quiz)
+
+
+# users = user_repo.select_all()
+# for user in users:
+#     print(user.__dict__)
+
+# results=answer_repo.select_false_quizzes(1)
+# for quiz in results:
+#     print(quiz.__dict__)
+
+# results=answer_repo.select_user_by_user_id(1)
+# print(results.__dict__)

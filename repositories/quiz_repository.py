@@ -20,7 +20,7 @@ def select_all():
     results=run_sql(sql)
 
     for row in results:
-        user=user_repo.select(row['user_id'])
+        user=user_repo.select_by_id(row['user_id'])
         quiz=Quiz(row['quiz'],row['opt1'],row['opt2'],row['opt3'],row['correct_answer'],row['level'],user,row['id'] )
         quizzes.append(quiz)
     return quizzes
