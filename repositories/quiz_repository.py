@@ -84,8 +84,3 @@ def update(quiz):
     run_sql(sql, values)
 
 
-
-# def update(task):
-#     sql = "UPDATE tasks SET (description, user_id, duration, completed) = (%s, %s, %s, %s) WHERE id = %s"
-#     values = [task.description, task.user.id, task.duration, task.completed, task.id]
-    # run_sql(sql, values)

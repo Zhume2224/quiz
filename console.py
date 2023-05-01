@@ -37,9 +37,9 @@ import repositories.user_repository as user_repo
 # for row in results:
 #     print(row.__dict__)
 
-# quiz_repo.delete_by_id(5)
-user1=User('Greg',1)
-# user1=user_repo.select_by_id(1)
-quiz=Quiz('who loves red','zhu','archie','ken',
-         'zhu',1, user1, 1)
-quiz_repo.update(quiz)
+# # quiz_repo.delete_by_id(5)
+# user1=User('Greg',1)
+# # user1=user_repo.select_by_id(1)
+# quiz=Quiz('who loves red','zhu','archie','ken',
+#          'zhu',1, user1, 1)
+# quiz_repo.update(quiz)
