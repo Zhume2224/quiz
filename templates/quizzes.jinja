@@ -6,8 +6,18 @@
 <h1>Quizzes</h1>
 <p>section2: this area shows the quizzes selected fo the current user</p>
 
+{% for user in users%}
 
+<form action="/quizzes/{{user.id}}" method="post">
+  <label for="user">Select a user:</label>
+    <select name="user_id" id="user">
+      {% for user in users %}
+      <option value="{{ user.id }}">{{ user.name }}</option>
+      {% endfor %}
+    </select>
+     <input type="submit" value="Submit"><br>
 
+</form>
 
 {% for quiz in quizzes%}
 <form action="/quizzes" method="post" >
@@ -17,9 +27,9 @@
 <select name="option">
   <option name="opt1" value="{{quiz.opt1}}">{{quiz.opt1}}
   </option><br>
-  <option name="opt2" value="{{quiz.opt1}}">{{quiz.opt2}}
+  <option name="opt2" value="{{quiz.opt2}}">{{quiz.opt2}}
   </option><br>
-  <option name="opt3" value="{{quiz.opt1}}">{{quiz.opt3}}
+  <option name="opt3" value="{{quiz.opt3}}">{{quiz.opt3}}
   </option><br>
 </select>
  <input type="submit" value="Submit"><br>

@@ -57,3 +57,8 @@ import repositories.answer_repository as answer_repo
 
 # results=answer_repo.select_user_by_user_id(1)
 # print(results.__dict__)
+
+
+# user_repo.update_score_by_level(1,2)
+# user_repo.update_score_by_level(1,2)
+

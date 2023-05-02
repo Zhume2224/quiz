@@ -83,4 +83,23 @@ def update(quiz):
     values=[quiz.quiz,quiz.opt1, quiz.opt2,quiz.opt3,quiz.correct_answer,quiz.level,quiz.user.id,quiz.id]
     run_sql(sql, values)
 
+# get correct answer by id
+def select_correct_answer_by_id(id):
+    sql = 'SELECT correct_answer FROM quizzes WHERE id = %s'
+    values = [id]
+    result = run_sql(sql, values)
+    if result:
+        return result[0]['correct_answer']
+    else:
+        return None
 
+
+def select_quizzes_not_assigned_to_user(user_id):
+    quizzes = []
+    sql = "SELECT * FROM quizzes WHERE user_id != %s;"
+    values = [user_id]
+    results = run_sql(sql, values)
+    for row in results:
+        quiz = Quiz(row['quiz'], row['opt1'], row['opt2'], row['opt3'], row['correct_answer'], row['level'], row['user_id'], row['id'])
+        quizzes.append(quiz)
+    return quizzes
