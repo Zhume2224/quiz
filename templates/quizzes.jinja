@@ -2,35 +2,69 @@
 
 {% block content %}
 
+{# 
+<h1>Select a user:</h1>
+{% for user in users %}
+<div class="user-option">
+  <option name="user" value="{{user.id}}">{{user.name}}</option>
+  <a href="/quizzes/{{user.id}}" class="select-button">select</a>
+</div>
+{% endfor %} #}
 
-  <h1>Select a user:</h1>
-      {% for user in users %}
-      <option name='user' value='{{user.id}}'>{{user.name}}</option>
-      <a href="/quizzes/{{user.id}}">select</a>
-      {% endfor %}
 
-
-<h1>Quizzes</h1>
-<p>Level 1</p>
-{% for quiz in quizzes%}
-{% if quiz.level==1 %}
-<p>Question: {{quiz.quiz}}</p>
-{% endif %}
+<div class="user-nav">
+<h1>Select a user:</h1>
+<p class="explain-select">Click More and register yourself if you are a new user.</p>
+{% for user in users %}
+  <a href="/quizzes/{{user.id}}" class="user-button">{{user.name}}</a>
 {% endfor %}
+</div>
 
-<p>Level 2</p>
-{% for quiz in quizzes%}
-{% if quiz.level==2 %}
-<p>Question: {{quiz.quiz}}</p>
-{% endif %}
-{% endfor %}
+<h1 class="quiz-title">Quiz</h1>
+<div class="levels-container">
+  <div class="level">
+    <h2>Level 1</h2>
+    {% for quiz in quizzes%}
+    {% if quiz.level==1 %}
+    <p>Question: {{quiz.quiz}}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
 
-<p>Level 3</p>
-{% for quiz in quizzes%}
-{% if quiz.level==3 %}
-<p>Question: {{quiz.quiz}}</p>
-{% endif %}
-{% endfor %}
+  <div class="level">
+    <h2>Level 2</h2>
+    {% for quiz in quizzes%}
+    {% if quiz.level==2 %}
+    <p>Question: {{quiz.quiz}}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="level">
+    <h2>Level 3</h2>
+    {% for quiz in quizzes%}
+    {% if quiz.level==3 %}
+    <p>Question: {{quiz.quiz}}</p>
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.levels-container {
+  display: flex;
+}
+
+.level {
+  flex: 1;
+  text-align: center;
+}
+
+.level h2 {
+  font-size: 24px;
+}
+</style>
+
 
 
 {% endblock %}

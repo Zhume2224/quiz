@@ -1,13 +1,27 @@
-{% extends 'base.jinja'%}
+{% extends 'base.jinja' %}
 
 {% block content %}
-<h1>Leading Board</h1>
+<div class="container">
+  <h1>Leading Board</h1>
 
+  {% for user in users %}
+  <p> {{user.name}}:{{user.score}}
+  </p>
+  {% endfor %}
 
-{% for user in users %}
-<p> {{user.name}}:{{user.score}}
+</div>
 
-</p>
-{% endfor %}
-<p>to-do: to put scores for each user</p>
+<style>
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  h1{ font-size:x-large}
+
+  p {font-size:larger
+  }
+</style>
 {% endblock %}

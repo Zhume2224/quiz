@@ -1,0 +1,86 @@
+body {
+    background: url('/static/css/images/Super-Mario-clouds-clear-sky-minimalism.png');
+    background-size: cover;
+
+    /* font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; */
+    font-family:Highway Gothic Wide;
+    padding: 0px;
+    margin: 0px;
+    
+  }
+  .nav-board{
+    font-size: 20px;
+    text-decoration: none;
+    text-emphasis-color:#4636f4;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    /* margin-bottom:20px; */
+    padding: 0;
+  }
+  
+  li {
+    background-size: contain;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+
+  }
+  
+  .user-button {
+
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4636f4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .user-button:hover {
+    background-color: #d6b6b6;
+    text-decoration: none;
+  }
+  
+.user-nav{
+   text-align: center;
+  }
+
+    
+.quiz-title{
+    text-align: center;
+   }
+
+.take-quiz{ text-align: center;}
+
+
+  /* input[type="submit"], input[type="text"], input[type="number"] */
+  
+select {
+    border-radius: 10px;
+    background-color:#E5F1FF;
+    padding-left:5px;
+    border: none;
+    font-size: 13px;
+    margin-left: 4px;
+  }
+
+
+  input[type=submit] {
+    padding:5px 5px; 
+    background:#4636f4;
+    -webkit-text-fill-color: #96b4d1;
+    border:0 none;
+    cursor:pointer;
+    border-radius: 5px;
+
+}
+

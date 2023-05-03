@@ -4,31 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {# <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous"> #}
   <title>Quiz</title>
-  <!-- <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet"> -->
-<!-- 
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/tables.css') }}"> -->
 </head>
 <body>
 <main class="flex flex--row">
   <nav>
-    <ul>
-      <li>
-        <a href="/">Score Board</a>
-      </li>
-      <li>
-        <a href="/quizzes">Quiz Challenge</a>
-      </li>
-      <li>
-        <a href="/addmore">Add More</a>
-      </li>
-    </ul>
-  </nav>
+  <ul>
+    <li >
+      <a class='nav-board' href="/">Score Board</a>
+    </li>
+    <li >
+      <a class='nav-board' href="/quizzes">Quiz Challenge</a>
+    </li>
+    <li >
+      <a class='nav-board' href="/addmore">More</a>
+    </li>
+  </ul>
+</nav>
+
+
   <section id="content">
       {% block content %}
 
