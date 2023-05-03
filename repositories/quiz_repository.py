@@ -4,14 +4,32 @@ from models.quiz import Quiz
 from models.user import User
 
 import repositories.user_repository as user_repo
+import logging
 
 # save quiz
+# def save(quiz):
+#     sql='INSERT INTO quizzes(quiz,opt1,opt2,opt3,correct_answer,level,user) VALUES(%s,%s,%s,%s,%s,%s,%s) RETURNING id'
+#     values=[quiz.quiz, quiz.opt1,quiz.opt2,quiz.opt3,quiz.correct_answer,quiz.level,quiz.user.id]
+#     result=run_sql(sql,values)
+#     quiz.id=result[0]['id']
+#     return quiz
+
+
+
 def save(quiz):
-    sql='INSERT INTO quizzes(quiz,opt1,opt2,opt3,correct_answer,level,user_id) VALUES(%s,%s,%s,%s,%s,%s,%s) RETURNING *'
-    values=[quiz.quiz, quiz.opt1,quiz.opt2,quiz.opt3,quiz.correct_answer,quiz.level,quiz.user.id]
-    result=run_sql(sql,values)
-    quiz.id=result[0]['id']
-    return quiz
+    try:
+        sql = 'INSERT INTO quizzes(quiz,opt1,opt2,opt3,correct_answer,level,user_id) VALUES(%s,%s,%s,%s,%s,%s,%s) RETURNING id'
+        values = [quiz.quiz, quiz.opt1, quiz.opt2, quiz.opt3, quiz.correct_answer, quiz.level, quiz.user.id]
+        result = run_sql(sql, values)
+        if result:
+            quiz.id = result[0]['id']
+            return quiz
+        else:
+            raise Exception('Failed to insert quiz')
+    except Exception as e:
+        logging.error(f'Error saving quiz: {e}')
+        raise e
+    
 
 # get quiz all
 def select_all():

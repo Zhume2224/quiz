@@ -13,15 +13,56 @@ quiz_blueprint = Blueprint("quizzes", __name__)
 
 @quiz_blueprint.route("/quizzes")
 def get_quizzes():
-    quizzes = quiz_repo.select_all()
-    return render_template("quizzes.jinja", quizzes=quizzes)
-
-
-@quiz_blueprint.route("/quizzes/<id>", methods=['POST'])
-def get_quizzes(id):
     users=user_repo.select_all()
-    quizzes=quiz_repo.select_quizzes_not_assigned_to_user(id)
-    return render_template("quizzes.jinja", users=users, quizzes=quizzes)
+    quizzes = quiz_repo.select_all()
+    return render_template("quizzes.jinja", quizzes=quizzes,users=users)
+
+
+
+@quiz_blueprint.route("/quizzes/<id>")
+def get_quizzes_for_user(id):
+    user=user_repo.select_by_id(id)
+    quizzes = quiz_repo.select_quizzes_not_assigned_to_user(id)
+    return render_template("take_quiz.jinja", quizzes=quizzes,user=user)
+
+
+@quiz_blueprint.route("/quizzes/check", methods=['POST'])
+def check_answer():
+    user_id=request.form['user_id']
+    # user=user_repo.select_by_id(user_id)
+
+    quiz_id=request.form['quiz_id']
+    quiz=quiz_repo.select_by_id(quiz_id)
+    level=quiz.level
+
+    answer_input=request.form['option']
+    correct_answer=quiz_repo.select_correct_answer_by_id(quiz_id)
+    
+    if answer_input==correct_answer:
+        user_repo.update_score_by_level(user_id,level)
+    else:pass
+
+    return redirect('/quizzes/' + user_id)
+
+
+
+
+
+# @quiz_blueprint.route("/quizzes/<id>", methods=['POST'])
+# def get_quiz(id):
+#     users=user_repo.select_all()
+#     # user_id_input is the user selected by client
+#     user_id_input=request.form['user.id']
+
+#     # user_on_web=user_repo.select_by_id(user_id_input)
+
+#     quizzes=quiz_repo.select_quizzes_not_assigned_to_user(user_id_input)
+#     return render_template("quizzes.jinja", users=users, quizzes=quizzes)
+
+
+
+
+
 
 
 

@@ -40,11 +40,12 @@ import repositories.answer_repository as answer_repo
 #     print(row.__dict__)
 
 # # quiz_repo.delete_by_id(5)
-# user1=User('Greg',1)
-# # user1=user_repo.select_by_id(1)
-# quiz=Quiz('who loves red','zhu','archie','ken',
-#          'zhu',1, user1, 1)
-# quiz_repo.update(quiz)
+# user1=User('Andrew',2, 4)
+# user_repo.save(user1)
+# user1=user_repo.select_by_id(7)
+# quiz=Quiz('who speaks Spanish','zhu','archie','ken',
+#          'zhu',1, user1)
+# quiz_repo.save(quiz)
 
 
 # users = user_repo.select_all()
@@ -61,4 +62,6 @@ import repositories.answer_repository as answer_repo
 
 # user_repo.update_score_by_level(1,2)
 # user_repo.update_score_by_level(1,2)
+
+user_repo.delete_user_by_id(10)
 

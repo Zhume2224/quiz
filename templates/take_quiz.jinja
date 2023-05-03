@@ -1,0 +1,29 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+<h1 name="user_id" value="{{user.id}}">WELCOME: {{user.name}}</h1>
+
+
+<h1>Quizzes</h1>
+
+{% for quiz in quizzes%}
+<form action="/quizzes/check" method="post" >
+<input type="hidden" name="quiz_id" value="{{quiz.id}}"/>
+<input type="hidden" name="user_id" value="{{user.id}}"/>
+
+<label name="quiz_id" value="{{quiz.id}}">Question: {{quiz.quiz}}</label>
+<select name="option">
+  <option name="opt1" value="{{quiz.opt1}}">{{quiz.opt1}}
+  </option><br>
+  <option name="opt2" value="{{quiz.opt2}}">{{quiz.opt2}}
+  </option><br>
+  <option name="opt3" value="{{quiz.opt3}}">{{quiz.opt3}}
+  </option><br>
+</select>
+ <input type="submit" value="Submit"><br>
+ </form>
+{% endfor %}
+
+
+{% endblock %}
+

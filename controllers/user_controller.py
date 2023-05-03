@@ -14,3 +14,5 @@ scores_blueprint = Blueprint("scores", __name__)
 def scores():
     users = user_repo.select_all()
     return render_template("scores.jinja", users = users)
+
+# POST /users

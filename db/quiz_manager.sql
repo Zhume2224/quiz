@@ -18,13 +18,14 @@ CREATE TABLE quizzes(
     opt3 VARCHAR(255),
     correct_answer VARCHAR(255),
     level INT,
-    user_id INT NOT NULL REFERENCES users(id)
+    user_id INT REFERENCES users(id) ON DELETE SET NULL
 );
+ 
 
 CREATE TABLE answers(
     id SERIAL PRIMARY KEY,
-    user_id INT NOT NULL REFERENCES users(id),
-    quiz_id INT NOT NULL REFERENCES quizzes(id),
+    user_id INT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    quiz_id INT NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
     correct BOOLEAN
 );
 
@@ -36,17 +37,17 @@ CREATE TABLE users_quizzes(
 );
 
 
-INSERT INTO users(name) VALUES ('Greg');
-INSERT INTO users(name) VALUES ('Ali');
-INSERT INTO users(name) VALUES ('Ken');
+-- INSERT INTO users(name) VALUES ('Greg');
+-- INSERT INTO users(name) VALUES ('Ali');
+-- INSERT INTO users(name) VALUES ('Ken');
 
-INSERT INTO quizzes (quiz,opt1,opt2,correct_answer,level,user_id) VALUES(
-    'who is the king?','greg','zhu','greg',1,1);
-
-
-INSERT INTO quizzes (quiz,opt1,opt2,correct_answer,level,user_id) VALUES(
-    'who is red?','ken','zhu','zhu',1,1);
+-- INSERT INTO quizzes (quiz,opt1,opt2,correct_answer,level,user_id) VALUES(
+--     'who is the king?','greg','zhu','greg',1,1);
 
 
-INSERT INTO answers(user_id,quiz_id,correct) VALUES(1,1,True);
-INSERT INTO answers(user_id,quiz_id,correct) VALUES(1,2,True);
+-- INSERT INTO quizzes (quiz,opt1,opt2,correct_answer,level,user_id) VALUES(
+--     'who is red?','ken','zhu','zhu',1,1);
+
+
+-- INSERT INTO answers(user_id,quiz_id,correct) VALUES(1,1,True);
+-- INSERT INTO answers(user_id,quiz_id,correct) VALUES(1,2,True);
