@@ -61,7 +61,6 @@ def select_by_user_id(user_id):
     sql='SELECT * FROM quizzes WHERE user_id=%s'
     values=[user_id]
     results=run_sql(sql,values)
-
     for result in results:
         user=user_repo.select_by_id(user_id)
         quiz=Quiz(result['quiz'],result['opt1'],result['opt2'],result['opt3'],result['correct_answer'],result['level'],user,result['id'] )
@@ -95,11 +94,16 @@ def delete_all():
     sql='DELETE  FROM quizzes'
     run_sql(sql)
 
+
+
 # update quiz
 def update(quiz):
-    sql = 'UPDATE quizzes SET quiz = %s, opt1 = %s, opt2 = %s, opt3 = %s, correct_answer = %s, level = %s, user_id = %s WHERE id = %s'
-    values=[quiz.quiz,quiz.opt1, quiz.opt2,quiz.opt3,quiz.correct_answer,quiz.level,quiz.user.id,quiz.id]
+    sql = 'UPDATE quizzes SET (quiz, opt1, opt2, opt3, correct_answer, level, user_id)=(%s,%s,%s,%s,%s,%s,%s) WHERE id = %s'
+    values = [quiz.quiz, quiz.opt1, quiz.opt2, quiz.opt3, quiz.correct_answer, quiz.level, quiz.user.id, quiz.id]
     run_sql(sql, values)
+    
+
+
 
 # get correct answer by id
 def select_correct_answer_by_id(id):
@@ -121,3 +125,13 @@ def select_quizzes_not_assigned_to_user(user_id):
         quiz = Quiz(row['quiz'], row['opt1'], row['opt2'], row['opt3'], row['correct_answer'], row['level'], row['user_id'], row['id'])
         quizzes.append(quiz)
     return quizzes
+
+
+def find_user_by_quiz_id(quiz_id):
+    quiz =select_by_id(quiz_id)
+    if quiz:
+        user = quiz.user
+        return user
+    else:
+        return None
+

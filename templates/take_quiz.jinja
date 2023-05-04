@@ -12,6 +12,7 @@
 <input type="hidden" name="user_id" value="{{user.id}}"/>
 
 <label name="quiz_id" value="{{quiz.id}}">Question: {{quiz.quiz}}</label>
+ <small>(Points: {{quiz.level}})</small>
 <select name="option">
   <option name="opt1" value="{{quiz.opt1}}">{{quiz.opt1}}
   </option><br>
@@ -20,7 +21,7 @@
   <option name="opt3" value="{{quiz.opt3}}">{{quiz.opt3}}
   </option><br>
 </select>
- <input type="submit" value="Submit"><br>
+ <input type="submit" value="Submit">
  </form>
 {% endfor %}
 

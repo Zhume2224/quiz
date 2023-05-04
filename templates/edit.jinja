@@ -1,0 +1,90 @@
+
+{% extends 'base.jinja' %}
+
+{% block content %}
+<form action="/addmore/{{quiz.id}}/edit" method="post">
+  <div>
+    <label for="quiz">Question:</label>
+    <input type="text" name="quiz" value="{{quiz.quiz}}" required autofocus size="50">
+  </div>
+  <div>
+    <label for="quiz">Option1:</label>
+    <input type="text" name="opt1" value="{{quiz.opt1}}" required autofocus size="50">
+  </div>
+ <div>
+    <label for="quiz">Option2:</label>
+    <input type="text" name="opt2" value="{{quiz.opt2}}" required autofocus size="50">
+  </div>
+ <div>
+    <label for="quiz">Option3:</label>
+    <input type="text" name="opt3" value="{{quiz.opt3}}" required autofocus size="50">
+  </div>
+ <div>
+    <label for="quiz">Correct Answer:</label>
+    <input type="text" name="correct_answer" value="{{quiz.correct_answer}}" required autofocus size="50">
+  </div>
+   <div>
+    <label for="quiz">Level:</label>
+    <input type="number" min='1' max='3' name="level" value="{{quiz.level}}" required autofocus size="50">
+  </div>
+  <label for="admin_name">Your Name: </label>
+<select name="admin_id" required><br>
+    {% for user in users %}
+      <option value="{{user.id }}">{{ user.name }}</option>
+    {% endfor %}
+    </select>
+<input type="submit" value="Update Question">
+
+{# 
+  <form action="/tasks/{{task.id}}" method="post">
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" value="{{task.description}}" required autofocus>
+  </div>
+
+  <div>
+    <label for="duration">Duration:</label>
+    <input type="number" id="duration" name="duration" value="{{task.duration}}" required>
+  </div>
+
+  <div>
+    <label for="completed">Completed:</label>
+    <select id="completed" name="completed">
+
+      <option value="true"
+        {% if task.completed == True %} selected="selected" {% endif %}>
+        True
+      </option>
+
+      <option value="false"
+        {% if task.completed == False %} selected="selected" {% endif %}>
+        False
+      </option>
+
+    </select>
+  </div>
+
+  <div>
+    <label for="user">User:</label>
+    <select id="user" name="user_id">
+      {% for user in all_users %}
+        <option value="{{ user.id }}"
+          {% if task.user.id== user.id %} selected="selected"{% endif %}>
+          {{ user.first_name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button type="submit">Update Task</button> #}
+
+</form>
+
+
+
+
+
+
+
+
+{% endblock %}

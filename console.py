@@ -21,9 +21,9 @@ import repositories.answer_repository as answer_repo
 # ------------------devide----------------
 
 
-# user1=User('Jack',6)
-# quiz1=Quiz('which bird eats elephant?','eagle',
-#            'sparrow','ladybird','ladybird',1,user1)
+# user1=User('Ken',11,3)
+# quiz1=Quiz('What is the highest mountain in Scotland?','Scafell Pike',
+#            'Ben Nevis','Snowdon','Ben Nevis',1,user1)
 # quiz_repo.save(quiz1)
 
 # results=quiz_repo.select_by_id(1)
@@ -40,12 +40,16 @@ import repositories.answer_repository as answer_repo
 #     print(row.__dict__)
 
 # # quiz_repo.delete_by_id(5)
-# user1=User('Andrew',2, 4)
+# user1=User('Admin',2,7)
 # user_repo.save(user1)
 # user1=user_repo.select_by_id(7)
-# quiz=Quiz('who speaks Spanish','zhu','archie','ken',
-#          'zhu',1, user1)
-# quiz_repo.save(quiz)
+# quiz = Quiz('What is the national animal of Scotland?', 'Lion', 'Unicorn', 'Dragon', 'Lion', user1, 24)
+
+# quiz_repo.update(quiz)
+
+
+
+
 
 
 # users = user_repo.select_all()
@@ -63,5 +67,9 @@ import repositories.answer_repository as answer_repo
 # user_repo.update_score_by_level(1,2)
 # user_repo.update_score_by_level(1,2)
 
-user_repo.delete_user_by_id(10)
+# user_repo.delete_user_by_id(10)
+# results=quiz_repo.select_by_user_id(7)
+# for result in results:
+#     print(result.__dict__)
+
 

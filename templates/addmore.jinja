@@ -4,16 +4,18 @@
 
 {% block content %}
 
-<h1>Add a new user</h1>
+<div class="more add-new-user"> 
+<h2>Add a new user</h1>
 <form action="/addmore/add_user" method="post">
  <label for="user">Add a user: </label>
 <input type="text" name="user_name" placeholder="user name" required>
 <input type="hidden" name="user_score" value='0'>
 <input type="submit" value="submit">
 </form>
+</div>
 
-
-<h1>Delete a user</h1>
+<div class="more delete-user">
+<h2>Delete a user</h1>
 <p>Use this function wisely</p>
 <form action="/addmore/delete_user" method="post">
   <label for="user">Select a user: </label>
@@ -24,10 +26,10 @@
   </select>
   <input type="submit" value="Delete">
 </form>
+</div>
 
-
-
-<h1>Add More Questions</h1>
+<div class="more more-quiz">
+<h2>Add More Questions</h1>
 <form action="/addmore/add_quizzes" method="post">
  <label for="quiz">Question: </label>
 <input type="text" name="quiz" placeholder="add a question" required><br>
@@ -50,7 +52,86 @@
     </select>
 <input type="submit" value="submit">
 </form>
+</div>
+
+<h2>Edit Questions</h2>
+    {% for quiz in quizzes%}
+<div>
+    <p>{{quiz.quiz}}<a href="/addmore/{{quiz.id}}">Edit</a></p>
+  </div>
+    {% endfor %}
+
+
+
+
+
+
+
+
+{# edit by user #}
+{# selecte questions submitted by user #}
+
+{# <div class="more update-quiz"> #}
+{# <
+{% for user in users %}
+  <a href="/addmore/update/{{user.id}}" class="user-button">{{user.name}}</a>
+{% endfor %}
+<small>Select Your Name First</small><br></div> #}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 {% endblock %}
+
+{# <select name="admin_id" required><br>
+    {% for user in users %}
+      <option value="{{user.id }}">{{ user.name }}</option>
+    {% endfor %}
+    </select>
+<input type="submit" value="submit"> #}
+
+
+
+{# 
+
+
+
+
+<form action="/addmore/add_quizzes" method="post">
+ <label for="quiz">Question: </label>
+<input type="text" name="quiz" placeholder="add a question" required><br>
+<label for="opt1">Option A: </label>
+<input type="" name="opt1" required><br>
+<label for="opt2">Option B: </label>
+<input type="" name="opt2" required><br>
+<label for="opt3">Option C: </label>
+<input type="" name="opt3" required><br>
+<label for="correct_answer">Correct Answer: </label>
+<input type="" name="correct_answer" required><br>
+<label for="level">Difficulty Level</label>
+<small>(Difficulty increases with number): </small>
+<input type="number" name="level" min="1" max="3" required><br>
+<label for="admin_name">Your Name: </label>
+<select name="admin_id" required><br>
+    {% for user in users %}
+      <option value="{{user.id }}">{{ user.name }}</option>
+    {% endfor %}
+    </select>
+<input type="submit" value="submit">
+</form>
+</div>
+
+ #}
+
+
+

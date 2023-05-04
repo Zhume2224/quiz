@@ -46,6 +46,33 @@ def add_quiz():
 
     return redirect ("/addmore")
 
-# def add_quizzes():
-#     pass
-    
+# show all: 
+@addmore_blueprint.route("/addmore/<id>")
+def show_quiz(id):
+   quiz=quiz_repo.select_by_id(id)
+   users=user_repo.select_all()
+   return render_template('edit.jinja',quiz=quiz,users=users)
+     
+# show individual quiz
+@addmore_blueprint.route("/addmore/<id>/edit", methods=['POST'])
+def edit_quiz(id):
+    user_id=request.form['admin_id']
+    user=user_repo.select_by_id(user_id)
+    quiz=request.form['quiz']
+    opt1=request.form['opt1']
+    opt2=request.form['opt2']
+    opt3=request.form['opt3']
+    correct_answer=request.form['correct_answer']
+    level=request.form['level']
+    quiz_to_update=Quiz(quiz,opt1,opt2,opt3,correct_answer,level,user,id)
+    quiz_repo.update(quiz_to_update)
+
+    return redirect("/quizzes")
+
+
+
+
+# @addmore_blueprint.route("/addmore/<id>", methods=['POST'])
+# def update_selected_quiz():
+#    quizzes=quiz_repo.select_all()
+#    return render_template('edit.jinja',quizzes=quizzes)
