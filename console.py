@@ -52,6 +52,8 @@ import repositories.answer_repository as answer_repo
 
 
 
+
+
 # users = user_repo.select_all()
 # for user in users:
 #     print(user.__dict__)
@@ -73,3 +75,7 @@ import repositories.answer_repository as answer_repo
 #     print(result.__dict__)
 
 
+
+# results=quiz_repo.select_quizzes_not_assigned_to_user(7)
+# for result in results:
+#     print(result.__dict__)

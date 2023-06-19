@@ -94,8 +94,10 @@ def select_false_quizzes(user_id):
 
 # def get_score_for_user(user or user_id):
 #     pass
-    # sql querey where id = user.id count all Correct = True
-    # return total score for the user
-
+# purpose: get user's score.
+# way1:  sql querey where id is user.id, count all, where Correct = True
     # sql querey which get all the quizes the user has answered correctly in list
     # loop the list and sum the "level" property
+    # return total score for the user
+# way2: make score equal to level of the score.
+# every time when the selected answer is equal to correct_answer, add level to total. 

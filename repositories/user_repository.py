@@ -68,7 +68,16 @@ def select_all():
         user = User(row['name'], row['score'], row['id'])
         users.append(user)
 
-    return users
+    sorted_users = sorted(users, key=lambda quiz: quiz.score, reverse=True)
+    # for user in sorted_users:
+    #     print(f"{user.name}: {user.score}")
+    return sorted_users
+
+
+
+
+
+
 
 def update_score_to_0():
     sql = "UPDATE users SET score = 0 WHERE score IS NULL"

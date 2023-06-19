@@ -116,6 +116,8 @@ def select_correct_answer_by_id(id):
         return None
 
 
+
+
 def select_quizzes_not_assigned_to_user(user_id):
     quizzes = []
     sql = "SELECT * FROM quizzes WHERE user_id != %s;"
