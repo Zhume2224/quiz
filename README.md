@@ -18,4 +18,4 @@ A family quiz webpage to show who is the champion, to take the quiz chanllenge a
 - The user should not answer the question added by themselves 
 - The user should not answer the same question twice
 - Questions have different difficulty levels with different points 
-- show how many questions certain user answered right/wrong, and how many questions they have contrubuted
+- show how many questions certain user answered right/wrong, and how many questions they have contributed
